@@ -299,7 +299,31 @@ int main(void)
 		printf("Was entered zero numbers ends with 8\n");
 	*/
 
+	//12. Написать функцию нахождения максимального из трех чисел
+
+	printf("\n---=== 12 ===---\n");
+	
+	printf("Please input first number: ");
+	scanf("%d", &a);
+
+	printf("Please input first number: ");
+	scanf("%d", &b);
+
+	printf("Please input first number: ");
+	scanf("%d", &c);
+		
+	printf("\nMaximum number is %d\n", findmax(a, b, c));
+
 	getchar();
 
 	return 0;
+}
+
+//Функция для задачи 12
+int findmax(int a, int b, int c){
+	int result = a;
+	if (result < b) result = b;
+	if (result < c) result = c;
+
+	return result;
 }
