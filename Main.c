@@ -1,6 +1,5 @@
 #include "Main.h"
 
-
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
@@ -77,6 +76,7 @@ int main(void)
 		printf("D = %f, no roots\n", descr);
 	}
 
+	getchar();
 
 	return 0;
 }
