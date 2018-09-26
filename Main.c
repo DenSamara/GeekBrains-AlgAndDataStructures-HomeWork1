@@ -6,7 +6,6 @@
 
 int main(void)
 {
-<<<<<<< HEAD
 	//Коновалов Денис
 
 	int w, index, month;
