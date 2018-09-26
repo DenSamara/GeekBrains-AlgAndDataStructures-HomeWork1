@@ -20,7 +20,6 @@ int main(void)
 		
 	printf("\nMaximum number is %d\n", max(a, b, c));
 
-	scanf("%d", &a);
 	return 0;
 }
 
