@@ -8,9 +8,10 @@ int main(void)
 {
 	//Коновалов Денис
 
-	int w, index, month, age, rest;
+	int w, index, month, age, rest, i;
 	float h, descr;
-	int a = 1, b = 2, c = 9, d = 3, max;
+	//Задача 2
+	int a, b, c, d, max;
 	//Задача 7
 	int x1, y1, x2, y2, c1, c2;
 
@@ -28,6 +29,7 @@ int main(void)
 
 	//2. Найти максимальное из четырех чисел. Массивы не использовать
 	printf("\n---=== 2 ===---\n");
+	a = 1, b = 2, c = 9, d = 3, max;
 	printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
 
 	max = a;
@@ -200,7 +202,6 @@ int main(void)
 		printf("Colours are different");
 
 	//8. Ввести a и b и вывести квадраты и кубы чисел от a до b
-
 	printf("\n---=== 8 ===---\n");
 	
 	do{
