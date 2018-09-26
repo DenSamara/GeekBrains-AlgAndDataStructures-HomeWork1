@@ -14,6 +14,8 @@ int main(void)
 	int a, b, c, d, max;
 	//Задача 7
 	int x1, y1, x2, y2, c1, c2;
+	//Задача 9. Частное
+	int quotient = 0;
 
 	//1. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела по формуле I=m/(h*h); где m-масса тела в килограммах, h - рост в метрах\n"
 	printf("---=== 1 ===---\n");
@@ -219,6 +221,28 @@ int main(void)
 	}
 
 
+	//9. Даны целые положительные числа N и K. Используя только операции сложения и вычитания, найти частное от деления нацело N на K, а также остаток от этого деления
+
+	printf("\n---=== 8 ===---\n");
+	
+	do{
+		printf("Please input n: ");
+		scanf("%d", &n);
+		printf("Please input k: ");
+		scanf("%d", &k);
+		if (n < k) printf("n must be more than k\n");
+	}while (n < k);
+
+	rest = n;
+	do{
+		rest -= k;
+		quotient++;
+	}while (rest >= k);
+
+
+	printf("%d/%d = %d (%d)\n", n, k, quotient, rest);
+
+	
 	getchar();
 
 	return 0;
