@@ -319,7 +319,7 @@ int main(void)
 	return 0;
 }
 
-//Функция для задачи 12
+//Функция нахождения большего из 3 чисел для задачи 12
 int findmax(int a, int b, int c){
 	int result = a;
 	if (result < b) result = b;
