@@ -3,28 +3,31 @@
 
 int main(void)
 {
-	//11. С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать среднее арифметическое всех положительных четных чисел, оканчивающихся на 8.
+	//12. Написать функцию нахождения максимального из трех чисел
 
-	int n, a, i, sum;
+	int a, b, c;
 
-	printf("\n---=== 11 ===---\n");
-	i = 0;
-	sum = 0;
-	do{
-		printf("Please input n: ");
-		scanf("%d", &n);
+	printf("\n---=== 12 ===---\n");
+	
+	printf("Please input first number: ");
+	scanf("%d", &a);
+
+	printf("Please input first number: ");
+	scanf("%d", &b);
+
+	printf("Please input first number: ");
+	scanf("%d", &c);
 		
-		if ( n > 0 && (n - div(n, 10) * 10) == 8 ){
-			sum += n;
-			i++;
-		}
-	}while (n != 0);
+	printf("\nMaximum number is %d\n", max(a, b, c));
 
-	if (i > 0)
-		printf("Was entered numbers end with 8: %d, avg is %d\n", i, sum/i);
-	else
-		printf("Was entered zero numbers ends with 8\n");
-
-	scanf("%d", &n);
+	scanf("%d", &a);
 	return 0;
+}
+
+int max(int a, int b, int c){
+	int result = a;
+	if (result < b) result = b;
+	if (result < c) result = c;
+
+	return result;
 }
