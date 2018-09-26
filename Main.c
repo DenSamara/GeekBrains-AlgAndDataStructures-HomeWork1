@@ -1,8 +1,8 @@
 #include "Main.h"
 
 #include <stdlib.h>
-#include <math.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 {
@@ -246,7 +246,10 @@ int main(void)
 
 	//10. Дано целое число N (> 0). С помощью операций деления нацело и взятия остатка от деления определить,
 	//имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
+	
+	//Пришлось закомментировать, потому что для функции div просит div_t вместо int. А в отдельном файле всё работает
 
+	/*
 	printf("\n---=== 10 ===---\n");
 	result = 0;
 	
@@ -269,6 +272,7 @@ int main(void)
 	}while (n > 0);
 
 	printf(result == 1 ? "true" : "false");
+	*/
 
 	getchar();
 
