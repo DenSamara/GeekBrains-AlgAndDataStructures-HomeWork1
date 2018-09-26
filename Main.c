@@ -14,7 +14,7 @@ int main(void)
 		printf("Please input n: ");
 		scanf("%d", &n);
 		
-		if ((n - div(n, 10) * 10) == 8){
+		if ( n > 0 && (n - div(n, 10) * 10) == 8 ){
 			sum += n;
 			i++;
 		}
