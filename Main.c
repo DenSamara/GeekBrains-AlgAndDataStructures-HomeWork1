@@ -8,7 +8,7 @@ int main(void)
 {
 	//Коновалов Денис
 
-	int w, index, month, age, rest, i;
+	int w, index, month, age, rest, i, result;
 	float h, descr;
 	//Задача 2
 	int a, b, c, d, max;
@@ -241,6 +241,32 @@ int main(void)
 
 
 	printf("%d/%d = %d (%d)\n", n, k, quotient, rest);
+
+	//10. Дано целое число N (> 0). С помощью операций деления нацело и взятия остатка от деления определить,
+	//имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
+
+	printf("\n---=== 10 ===---\n");
+	result = 0;
+	
+	do{
+		printf("Please input n: ");
+		scanf("%d", &n);
+		
+		if (n <= 0) printf("n must be more than 0\n");
+	}while (n <= 0);
+
+	do{
+		rest = n % 10;
+		//Если нашли нечётное число - выходим
+		if (rest % 2 == 1){
+			result = 1;
+			break;
+		}
+
+		n = div(n-rest, 10);
+	}while (n > 0);
+
+	printf(result == 1 ? "true" : "false");
 
 	
 	getchar();
