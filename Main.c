@@ -1,32 +1,29 @@
 #include "Main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
-	//12. Написать функцию нахождения максимального из трех чисел
-
-	int a, b, c;
-
-	printf("\n---=== 12 ===---\n");
+	//13. Написать функцию, генерирующую случайное число от 1 до 100
+	printf("\n---=== 13 ===---\n");
 	
-	printf("Please input first number: ");
-	scanf("%d", &a);
+	printf("My random is %d\n", myRand(1, 100));
+	printf("System random is %d\n", systemRand(1, 100));
 
-	printf("Please input first number: ");
-	scanf("%d", &b);
-
-	printf("Please input first number: ");
-	scanf("%d", &c);
-		
-	printf("\nMaximum number is %d\n", max(a, b, c));
+	getchar();
 
 	return 0;
 }
 
-int max(int a, int b, int c){
-	int result = a;
-	if (result < b) result = b;
-	if (result < c) result = c;
+int myRand(int min, int max){
+	int result = max/min;
+
+	return result;
+}
+
+int systemRand(int min, int max){
+	srand(max);
+	int result = rand();
 
 	return result;
 }
