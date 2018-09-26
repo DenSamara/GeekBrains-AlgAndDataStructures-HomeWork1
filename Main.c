@@ -3,30 +3,34 @@
 
 int main(void)
 {
-	//Даны целые положительные числа N и K. Используя только операции сложения и вычитания, найти частное от деления нацело N на K, а также остаток от этого деления
+	//Дано целое число N (> 0). С помощью операций деления нацело и взятия остатка от деления определить,
+	//имеются ли в записи числа N нечетные цифры. Если имеются, то вывести True, если нет — вывести False.
 
-	int n, k;
+	int n;
 	//Частное и остаток
-	int quotient = 0, rest;
+	int result = 0, rest;
 
-	printf("\n---=== 8 ===---\n");
+	printf("\n---=== 10 ===---\n");
 	
 	do{
 		printf("Please input n: ");
 		scanf("%d", &n);
-		printf("Please input k: ");
-		scanf("%d", &k);
-		if (n < k) printf("n must be more than k\n");
-	}while (n < k);
+		
+		if (n <= 0) printf("n must be more than 0\n");
+	}while (n <= 0);
 
-	rest = n;
 	do{
-		rest -= k;
-		quotient++;
-	}while (rest >= k);
+		rest = n % 10;
+		//Если нашли нечётное число - выходим
+		if (rest % 2 == 1){
+			result = 1;
+			break;
+		}
 
+		n = div(n-rest, 10);
+	}while (n > 0);
 
-	printf("%d/%d = %d (%d)\n", n, k, quotient, rest);
+	printf(result == 1 ? "true" : "false");
 
 	scanf("%d", &n);
 	return 0;
