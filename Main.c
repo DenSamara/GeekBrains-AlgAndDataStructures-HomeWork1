@@ -8,7 +8,7 @@ int main(void)
 {
 	//Коновалов Денис
 
-	int w, index, month;
+	int w, index, month, age, rest;
 	float h, descr;
 	int a = 1, b = 2, c = 9, d = 3, max;
 
@@ -75,39 +75,53 @@ int main(void)
 	}else{
 		printf("D = %f, no roots\n", descr);
 	}
-
-	//С клавиатуры вводится номер месяца. Требуется определить, к какому времени года он относится
-	printf("---=== 5 ===---\n");
+	
+	//Ввести возраст человека (от 1 до 150 лет) и вывести его вместе с последующим словом «год», «года» или «лет».
+	printf("---=== 6 ===---\n");
 	
 	do{
-		printf("Enter month number 1 - 12:\n");//height and 
-		scanf("%d", &month);
+		printf("Enter age 1 - 150:\n");
+		scanf("%d", &age);
 
-		switch (month){
-		case 1:
-		case 2:
-		case 12:
-			printf("Season is Winter\n");
-			break;
-		case 3:
-		case 4:
-		case 5:
-			printf("Season is Spring\n");
-			break;
-		case 6:
-		case 7:
-		case 8:
-			printf("Season is Summer\n");
-		break;
-		case 9:
-		case 10:
-		case 11:
-			printf("Season is Autumn\n");
-		break;
-		default:
-			break;
+		rest = age % 10;
+
+		switch (rest){
+			case 0:
+				printf("%d let\n", age);
+				break;
+			case 1:
+				//11 - исключение
+				if (age == 11)
+					printf("%d let\n", age);
+				else
+					printf("%d god\n", age );
+				break;
+			case 2:
+				//12 - исключение
+				if (age == 12)
+					printf("%d let\n", age);
+				else
+					printf("%d goda\n", age );
+				break;
+			case 3:
+				//13 - исключение
+				if (age == 13)
+					printf("%d let\n", age);
+				else
+					printf("%d goda\n", age );
+				break;
+			case 4:
+				//14 - исключение
+				if (age == 14)
+					printf("%d let\n", age);
+				else
+					printf("%d goda\n", age );
+				break;
+			default:
+				printf("%d let\n", age);
+				break;
 		}
-	}while(1 <= month && month <= 12);
+	}while(1 <= age && age <= 150);
 
 	getchar();
 
