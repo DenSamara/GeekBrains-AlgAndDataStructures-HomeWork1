@@ -1,15 +1,19 @@
 #include "Main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 const int x = 123456789, y = 362436000, z = 521288629, c = 7654321;
 
-int main(void)
+int main(int argc, const char * argv[])
 {
 	int q = 1;
+
+	setlocale(LC_ALL, "Rus");
+	
 	//13. Написать функцию, генерирующую случайное число от 1 до 100
 	printf("\n---=== 13 ===---\n");
-	printf("Type 0 for repeat, or another number for quit\n");
+	printf("Наберите 0 для выхода, любое другое - для повтора\n");
 
 	do {
 		printf("My random is %d\n", myRand(1, 100));
@@ -17,8 +21,7 @@ int main(void)
 		scanf("%d", &q);
 	}while(q != 0);
 
-	getchar();
-
+	//system("pause");
 	return 0;
 }
 
