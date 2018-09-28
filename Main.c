@@ -3,44 +3,46 @@
 #include <stdlib.h>
 #include <locale.h>
 
+int isAutomorph(int n){
+	int quad;
+	quad = n * n;
+	while (n > 0){
+		if (quad % 10 != n % 10)
+			return 0;
+		n /= 10;
+		quad /= 10;
+	}
+	return 1;
+}
+
+void printAllAutomorph(int n){
+	int i = 5, quad = 1;
+
+	while (quad < n)
+    {
+		quad = i * i;
+		if (isAutomorph(i)){
+			printf("%d * %d = %d\n", i, i, quad);
+		}
+		i++;
+	}
+}
+
 int main(int argc, const char * argv[])
 {
-	unsigned short myLastRandom = 1;
-	int q = 1;
+	int n;
 
 	setlocale(LC_ALL, "Rus");
 	
-	//13. Написать функцию, генерирующую случайное число от 1 до 100
-	printf("\n---=== 13 ===---\n");
-	printf("Наберите 0 для выхода, любое другое - для повтора\n");
+	//14 Напишите программу, которая вводит натуральное число N и выводит на экран все автоморфные числа, не превосходящие N.
+	printf("\n---=== 14 ===---\n");
+	printf("Введите N меньше которого должны быть автоморфные числа, 0 - выход из программы\n");
 
 	do {
-		myLastRandom = myRand(myLastRandom, 100);
-		printf("My random is %d\n", myLastRandom);
-		printf("System random is %d\n", systemRand(1, 100));
-		scanf("%d", &q);
-	}while(q != 0);
+		scanf("%d", &n);
 
-	//system("pause");
+		printAllAutomorph(n);
+	}while(n != 0);
+
 	return 0;
-}
-
-//xn+1 = (A*Xn+B)%M
-unsigned int myRand(int min, int max){
-	int a=2, b=3;
-	return (a*min+b)%max;
-}
-
-unsigned int systemRand(int min, int max){
-	errno_t err;
-	unsigned result;
-
-	err = rand_s(&result);
-	if (err != 0)
-    {
-		printf_s("The rand_s function failed!\n");
-		return -1;
-	}
-
-	return (unsigned int)((double)result/((double)(UINT_MAX))*(double)max)+min;
 }
