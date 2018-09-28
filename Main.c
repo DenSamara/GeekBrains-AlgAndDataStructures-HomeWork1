@@ -3,10 +3,9 @@
 #include <stdlib.h>
 #include <locale.h>
 
-const int x = 123456789, y = 362436000, z = 521288629, c = 7654321;
-
 int main(int argc, const char * argv[])
 {
+	unsigned short myLastRandom = 1;
 	int q = 1;
 
 	setlocale(LC_ALL, "Rus");
@@ -16,7 +15,8 @@ int main(int argc, const char * argv[])
 	printf("Ќаберите 0 дл€ выхода, любое другое - дл€ повтора\n");
 
 	do {
-		printf("My random is %d\n", myRand(1, 100));
+		myLastRandom = myRand(myLastRandom, 100);
+		printf("My random is %d\n", myLastRandom);
 		printf("System random is %d\n", systemRand(1, 100));
 		scanf("%d", &q);
 	}while(q != 0);
@@ -25,50 +25,10 @@ int main(int argc, const char * argv[])
 	return 0;
 }
 
+//xn+1 = (A*Xn+B)%M
 unsigned int myRand(int min, int max){
-	int i = 0;
-	unsigned int result = time(NULL);
-	
-	for (i = 1; i < 100; i++){
-		if (result & 13 == 0){
-			result = result * c;
-		}
-		else
-			result = result * i;
-
-		if (result & 11 == 0)
-			result = result * i;
-		else{
-			result += x^(x>>6);
-		}
-
-		result *= i;
-
-		if (result & 19 == 0)
-			result = result * i;
-		else{
-			result += y^(y>>7);
-		}
-
-		result *= i;
-
-		if (result & 7 == 0)
-			result = result * i;
-		else{
-			result += z^(z<<13);
-		}
-
-		result *= i;
-
-		if (result & 2 == 0)
-			result += c^(c>>32);
-		else{
-			result = result * i;
-			break;
-		}
-	}
-
-	return (unsigned int)((double)result/((double)(x))*(double)max)+1;
+	int a=2, b=3;
+	return (a*min+b)%max;
 }
 
 unsigned int systemRand(int min, int max){
